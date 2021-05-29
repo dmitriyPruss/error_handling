@@ -23,9 +23,6 @@ const pow = (num, n) => {
         case (n === 0):
             return 1;
             break;
-        case (n === 1):
-            return num;
-            break;
         case (n >= 1):
             return num * pow(num, n-1);
             break;
