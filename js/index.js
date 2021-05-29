@@ -13,10 +13,10 @@ const pow = (num, n) => {
         throw new TypeError(`Pow ${n} is not a number`);
     };
     if (n > 2000) {
-        throw new ReferenceError(`Pow ${n} is so big!`);
+        throw new RangeError(`Pow ${n} is so big!`);
     };
     if (n % 1 !== 0) {
-        throw new ReferenceError(`Pow ${n} must be an integer number!`);
+        throw new RangeError(`Pow ${n} must be an integer number!`);
     };
 
     switch (true) {
@@ -40,12 +40,12 @@ try {
     console.log('pow(5, 0) :>> ', pow(5, 0));
 
     // TypeError
-    // console.log('pow(5, "asd") :>> ', pow(5, 'asd'));
+    console.log('pow(5, "asd") :>> ', pow(5, 'asd'));
     // console.log('pow(5, "asd") :>> ', pow('asda', 3));
 
     // RangeError
-    console.log('pow(5, "asd") :>> ', pow(5, 2.578));
-    // console.log('pow(5, "asd") :>> ', pow(5, 2578));  
+    // console.log('pow(5, "asd") :>> ', pow(5, 2.578));
+    // console.log('pow(5, "asd") :>> ', pow(5, 2978));  
 
 } catch (error) {
     console.log('error.message :>> ', error.message);
@@ -53,8 +53,8 @@ try {
     if (error instanceof TypeError) {
         console.log(error.name + ': you must input a number');
     };
-    if (error instanceof ReferenceError) {
-        console.log(error.name + ': you must correct your code');
+    if (error instanceof RangeError) {
+        console.log(error.name + ': pow is out of range or isn`t an integer number');
     };
 };
 
